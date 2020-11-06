@@ -2,11 +2,13 @@ import React from 'react';
 import Profile from './Profile';
 
 const Player = (props) => (
-        <div>
-            <h1 className='header'>{props.label}</h1>
-            <h3 style={{ textAlign: 'center' }}>Score: {props.score}</h3>
-            <Profile profile={props.profile} />
+    <div className='column'>
+        <div className='header'>
+            <h2>{props.label}</h2>
+            <h3>Score: {props.score}</h3>
         </div>
-    )
+        <Profile profile={props.profile} />
+    </div>
+)
 
 export default Player;

@@ -37,7 +37,7 @@ class PlayerInput extends Component {
                     autoComplete='off'
                     onChange={this.handleChange}
                 />
-                <button 
+                <button
                     className='button'
                     type='submit'
                     disabled={!this.state.username}

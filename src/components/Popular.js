@@ -36,7 +36,8 @@ class Popular extends Component {
                 />
 
                 {repos ?
-                    <RepoGrid repos={repos} /> :
+                    <RepoGrid repos={repos} />
+                    :
                     <div className='loading-circles'>
                         <div className='circle1'></div>
                         <div className='circle2'></div>
@@ -48,7 +49,8 @@ class Popular extends Component {
                     <>
                         <p>{error}</p>
                         <Link to='/'>Go to Home page</Link>
-                    </> :
+                    </>
+                    :
                     null
                 }
 

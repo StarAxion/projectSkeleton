@@ -7,13 +7,13 @@ const Nav = () => {
         <ul className='nav'>
             {links.map((link, index) => (
                 <li key={index}>
-                    <NavLink 
-                        activeClassName='active' 
-                        exact 
+                    <NavLink
+                        activeClassName='active'
+                        exact
                         to={link === 'Home' ? '/' : `/${link.toLowerCase()}`}>
-                            {link}
+                        {link}
                     </NavLink>
-                </li> 
+                </li>
             )
             )}
         </ul>

@@ -17,13 +17,13 @@ class Results extends Component {
 
     componentDidMount() {
         const players = qs.parse(this.props.location.search);
-        
+
         battle([
             players.playerOneName,
             players.playerTwoName
         ]).then(players => {
-            if(!players) {
-                return this.setState({ 
+            if (!players) {
+                return this.setState({
                     error: 'Check both users on GitHub',
                     loading: false
                 })
@@ -41,15 +41,26 @@ class Results extends Component {
     render() {
         const { winner, loser, loading, error } = this.state;
 
-        if(loading) {
-            return <p style={{ textAlign: 'center' }}>Loading ...</p>
+        if (loading) {
+            return (
+                <div className='loading-circles'>
+                    <div className='circle1'></div>
+                    <div className='circle2'></div>
+                    <div className='circle3'></div>
+                </div>
+            )
         }
 
-        if(error) {
+        if (error) {
             return (
                 <div>
                     <p>{error}</p>
-                    <Link to='/battle'>Reset</Link>
+                    <Link
+                        to='/battle'
+                        className='reset'
+                    >
+                        Reset
+                    </Link>
                 </div>
             )
         }
@@ -61,7 +72,7 @@ class Results extends Component {
                     score={winner.score}
                     profile={winner.profile}
                 />
-                <Player 
+                <Player
                     label='Loser'
                     score={loser.score}
                     profile={loser.profile}

@@ -16,7 +16,6 @@ class Battle extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-
     handleSubmit(id, username) {
         this.setState(() => {
             const newState = {};
@@ -41,50 +40,58 @@ class Battle extends Component {
             <div>
                 <div className='row'>
                     {!playerOneName ?
-                        <PlayerInput 
+                        <PlayerInput
                             id='playerOne'
                             label='Player One'
                             onSubmit={this.handleSubmit}
-                        /> :
-                        <PlayerPreview
-                            avatar={playerOneImage}
-                            username={playerOneName}
-                        >
-                            <button 
-                                className='reset'
-                                onClick={() => this.handleReset('playerOne')}
+                        />
+                        :
+                        <div className='column'>
+                            <PlayerPreview
+                                avatar={playerOneImage}
+                                username={playerOneName}
                             >
-                                Reset
+                                <button
+                                    className='reset'
+                                    onClick={() => this.handleReset('playerOne')}
+                                >
+                                    Reset
                             </button>
-                        </PlayerPreview>
+                            </PlayerPreview>
+                        </div>
                     }
 
                     {!playerTwoName ?
-                        <PlayerInput 
+                        <PlayerInput
                             id='playerTwo'
                             label='Player Two'
                             onSubmit={this.handleSubmit}
-                        /> :
-                        <PlayerPreview
-                            avatar={playerTwoImage}
-                            username={playerTwoName}
-                        >
-                            <button 
-                                className='reset'
-                                onClick={() => this.handleReset('playerTwo')}
+                        />
+                        :
+                        <div className='column'>
+                            <PlayerPreview
+                                avatar={playerTwoImage}
+                                username={playerTwoName}
                             >
-                                Reset
+                                <button
+                                    className='reset'
+                                    onClick={() => this.handleReset('playerTwo')}
+                                >
+                                    Reset
                             </button>
-                        </PlayerPreview>
+                            </PlayerPreview>
+                        </div>
                     }
                 </div>
+
                 {playerOneImage && playerTwoImage &&
-                    <Link 
+                    <Link
                         to={{
                             pathname: this.props.match.url + '/results',
                             search: '?playerOneName=' + playerOneName + '&playerTwoName=' + playerTwoName
-                         }} 
-                        className='button'>
+                        }}
+                        className='button'
+                    >
                         Battle
                     </Link>
                 }

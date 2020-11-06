@@ -9,7 +9,7 @@ import Nav from './Nav';
 const App = () => (
     <Router>
         <div className='container'>
-            <Nav /> 
+            <Nav />
             <Switch>
                 <Route exact path='/' component={Home} />
                 <Route exact path='/battle' component={Battle} />
